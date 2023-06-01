@@ -7,6 +7,7 @@ WORKDIR /usr/src/app
 # Copy app sources and own them by user 'node' instead of root
 COPY --chown=node:node . /usr/src/app
 
-USER node
 RUN npm ci --only=production && npm cache clean --force
+
+USER node
 CMD [ "dumb-init","node", "app.js" ]
