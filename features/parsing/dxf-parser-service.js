@@ -25,6 +25,7 @@ function parseDxfFile(fileName, fileContentStr){
         try {
             parsedContent = parser.parseSync(fileContentStr);
         }catch(err) {
+
             return log.error(err.stack);
         }
         //parsedContent = parser.parseSync(fileContentStr);
@@ -72,6 +73,9 @@ function receiveBase64DxfDrawing(msg){
 
     if (payloadJSON.files !== undefined && Array.isArray(payloadJSON.files)){
         let allFiles = payloadJSON.files;
+        if (allFiles.length == 0){
+            log.warn("no files to parse provided");
+        }
         allFiles.forEach(
             dxfFile => {
                 let fileName = dxfFile.name === undefined ? "noname" : dxfFile.name;
@@ -83,6 +87,8 @@ function receiveBase64DxfDrawing(msg){
                 if (fileContentB64 !== undefined){
                     let fileContent = Buffer.from(fileContentB64,'base64').toString('utf8');
                     parsedFileContent = parseDxfFile(fileName,fileContent);
+                } else {
+                    log.error("no content provided");
                 }
 
                 parsedOutput.parsedDrawings.push(parsedFileContent);
