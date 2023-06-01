@@ -1,14 +1,14 @@
 {
   "name": "dxf-parser-srv",
   "version": "0.0.1",
-  "description": "",
+  "description": "The service which parses DXF files provided as base64 string into JSON object",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spacesoldier/nodeServiceExperiment.git"
+    "url": "git+https://github.com/spacesoldier/AutoPlumbingAppDxfParseSrv.git"
   },
   "keywords": [],
   "author": "",
