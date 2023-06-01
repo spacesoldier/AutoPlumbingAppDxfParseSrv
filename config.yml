@@ -1,0 +1,21 @@
+app-name: "DXF parser service"
+
+# this section describes the server logic provided by the application
+# it consists of server and its endpoints definitions
+servers:
+  # a name of the server inside the application
+  dxf-server:
+    hosts:
+      - ${ACCEPT_HOST:"127.0.0.1"}
+    port: ${PORT:8080}
+    protocol: "http"
+    endpoints:
+      # this endpoint receives dxf drawings as base64 encoded string
+      # provided by the API Gateway
+      receiver:
+        location: "/drawing/receive"
+        methods:
+          post:
+            handler: "receiveBase64DxfDrawing"
+
+
