@@ -59,6 +59,8 @@ function receiveBase64DxfDrawing(msg){
 
     if (msg.payload !== undefined){
         payloadJSON = JSON.parse(msg.payload);
+    } else {
+        log.warn("no payload received");
     }
 
     if (payloadJSON.count !== undefined){
