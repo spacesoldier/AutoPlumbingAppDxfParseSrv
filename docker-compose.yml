@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  parseapp:
+    image: silviosalgari/plumbier-dxf-parser-service:latest
+    container_name: plumbier-dxf-parser
+    environment:
+      PORT: 8080
+    ports:
+      - "8999:8080"
+
+networks:
+  default:
+    external:
+      name: leadersnet
