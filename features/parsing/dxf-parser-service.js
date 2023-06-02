@@ -55,6 +55,8 @@ function receiveBase64DxfDrawing(msg){
 
     log.info(`received msg ${msg.msgId}`);
 
+    log.info(`${msg.msgId} headers ${msg.request.headers}`);
+
     let payloadJSON = {};
 
     if (msg.payload !== undefined){
