@@ -55,7 +55,7 @@ function receiveBase64DxfDrawing(msg){
 
     log.info(`received msg ${msg.msgId}`);
 
-    log.info(`${msg.msgId} headers ${msg.request.headers}`);
+    log.info(`${msg.msgId} headers ${(msg.request.headers).toString()}`);
 
     let payloadJSON = {};
 
